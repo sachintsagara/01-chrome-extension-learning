@@ -6,8 +6,9 @@ chrome.storage.sync.get("color", ({color}) => {
 });
 
 changeColor.addEventListener("click", async () => {
+    console.log("Click event")
     let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
-    console.log("tabs", tab)
+    console.log("tabs", tab);
 
     chrome.scripting.executeScript({
         target: {tabId: tab.id},
